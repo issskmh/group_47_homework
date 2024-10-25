@@ -43,6 +43,8 @@ def add_products():
 
     connection.commit()
     connection.close()
+
+
 def update_quantity(product_id, new_quantity):
     connection = sqlite3.connect('hw.db')
     cursor = connection.cursor()
@@ -63,7 +65,6 @@ def update_price(product_id, new_price):
     connection.close()
 
 
-
 def delete_product(product_id):
     connection = sqlite3.connect('hw.db')
     cursor = connection.cursor()
@@ -72,6 +73,8 @@ def delete_product(product_id):
 
     connection.commit()
     connection.close()
+
+
 def print_all_products():
     connection = sqlite3.connect('hw.db')
     cursor = connection.cursor()
@@ -83,6 +86,8 @@ def print_all_products():
         print(product)
 
     connection.close()
+
+
 def print_cheap_products(max_price=100.0, min_quantity=5):
     connection = sqlite3.connect('hw.db')
     cursor = connection.cursor()
@@ -94,6 +99,8 @@ def print_cheap_products(max_price=100.0, min_quantity=5):
         print(product)
 
     connection.close()
+
+
 def search_products_by_title(search_term):
     connection = sqlite3.connect('hw.db')
     cursor = connection.cursor()
@@ -105,6 +112,8 @@ def search_products_by_title(search_term):
         print(product)
 
     connection.close()
+
+
 def main():
     create_database()
     add_products()
@@ -115,7 +124,7 @@ def main():
     print("\nПоиск товаров по названию 'мыло':")
     search_products_by_title('мыло')
 
-    update_quantity(1, 12)  
+    update_quantity(1, 12)
     update_price(1, 55.00)
     print("\nПосле обновления товара с id=1:")
     print_all_products()
@@ -123,5 +132,7 @@ def main():
     delete_product(1)
     print("\nПосле удаления товара с id=1:")
     print_all_products()
+
+
 if __name__ == "__main__":
     main()
